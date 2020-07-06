@@ -1,0 +1,128 @@
+#!/usr/bin/env sh
+
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
+
+# For other panels.
+# [ -e "$PANEL_FIFO" ] && bspc subscribe report > "$PANEL_FIFO" &
+# pgrep -x panel > /dev/null || panel &
+
+
+
+#LAUNCHERS
+killall cleanfullscreen
+cleanfullscreen &
+
+
+#Bspwm configs
+bspc config border_width         3
+bspc config window_gap           7
+bspc config top_padding          32
+bspc config bottom_padding       7
+bspc config right_padding        7
+bspc config left_padding         7
+bspc config split_ratio          0.55
+#bspc config borderless_monocle   true
+#bspc config gapless_monocle      true
+#bspc config automatic_scheme alternate
+#bspc config initial_polarity second_child
+bspc config focus_follows_pointer true
+bspc config external_rules_command $HOME/.config/bspwm/spotify_rules
+bspc config external_rules_command $HOME/.local/bin/float.sh
+#bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors true
+
+# Disable border when is only one window
+#bspc config single_monocle true
+
+#Moving foating windows
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors true
+
+
+#Set the border colors
+bspc config normal_border_color "#2f2b26"
+bspc config active_border_color "#c3cdc8"
+bspc config focused_border_color "#c3cdc8"
+#bspc config presel_border_color "#050505"
+#bspc config urgent_border_color "#010101"
+
+
+#Single monitor
+bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+#bspc monitor  -d "☢️ " "🤬 " "⚒️ " "🍭 " "🎲 " "🎬 " "🔰 "  "🎯 " "📀 "
+#bspc monitor -d "Web " "Chat " "Float " "Edit " "Tor " "Video " "Vbox " "File " "Music "
+#bspc monitor -d " "  " "  " "  " "  " "  " "  " "  " "  " "  " "
+#bspc monitor -d "I " "II " "III " "IV " "V " "VI " "VII " "VIII " "IX " "X "
+
+# If you use this then download btops from aur.
+#btops &
+
+#Dual monitor
+#bspc monitor LVDS1 -d 1 2 3 4
+#bspc monitor DP3 -d  5 6 7 8 9
+
+
+
+#Application Rules
+#Open applications on specific workspaces
+bspc rule -a firefox desktop='^1' follow=on
+bspc rule -a discord desktop='^2' follow=on
+bspc rule -a TelegramDesktop desktop='^2' follow=on
+bspc rule -a Subl3 desktop='^3' follow=on
+bspc rule -a Steam desktop='^9' state=floating
+bspc rule -a Vlc desktop='^7' state=fullscreen follow=on
+bspc rule -a Thunar desktop='^4' follow=on
+bspc rule -a Spotify desktop='^9' follow=on
+bspc rule -a VirtualBox Manager state=fullscreen
+bspc rule -a VirtualBox Machine state=fullscreen
+bspc rule -a Ulauncher  border=off
+bspc rule -a burp-StartBurp desktop='^9' state=floating follow=on
+
+# For sratchpad in bspwm/scripts in .local/bin
+#bspc rule -a scratchterm hidden=on sticky=on state=floating rectangle=900x500+540+200
+#st -c scratchterm &
+
+#Floating apps
+bspc rule -a feh state=floating
+bspc rule -a qView state=floating
+bspc rule -a Pulseaudio-equalizer-gtk  state=floating
+bspc rule -a Gpick state=floating
+bspc rule -a Xfce4-terminal state=floating
+bspc rule -a Lxappearance state=floating
+bspc rule -a Pavucontrol state=floating rectangle=800x450+0+0 center=on
+bspc rule -a Thunar:Dialog state=floating center=true
+bspc rule -a URxvt:Newsboat state=floating center=on
+bspc rule -a URxvt:Ranger state=floating center=on
+bspc rule -a URxvt:Pacui state=floating center=on
+bspc rule -a Galculator state=floating
+#bspc rule -a Oblogout state=floating
+#bspc rule -a Preferences state=floating follow=on
+bspc rule -a St:calcurse state=floating
+bspc rule -a Sxiv state=floating
+bspc rule -a mpv state=floating
+
+#polybar hidden when fullscreen for vlc, youtube, mpv ...
+#find out the name of your monitor with xrandr
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DisplayPort-0)
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DisplayPort-1)
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI1)
+bspc rule -a polybar manage=off
+
+
+
+
+#Spotify fix  --move desktop 9
+sleep 1
+wmctrl -r Spotify -t 9
+exit
+
+
+
+# for dzen panel
+#/home/$USER/.config/bspwm/dzen2.sh &o

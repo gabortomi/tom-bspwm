@@ -1,0 +1,270 @@
+
+# Bspwm keybinds
+
+super + {_,shift + } Return
+    {$TERMINAL, bspwmfloat && $TERMINAL -g 110x30}
+
+# Dmenu2 and rofi(window switcher, application launcher)
+super + {_,shift +} d
+    {dmenu_run -i -p 'Keresés' -nb '#2f2b26' -sb '#2e8b57' -fn 'JetBrains Mono Medium-12' -w '760' -h '24' -x '574' -y '48',rofi_run -r}
+
+
+# Tui filemanager and same command wirh sudo
+super + {_,shift + } r
+   {$TERMINAL -n $FILE -c $FILE -e $FILE, $TERMINAL -n $FILE -c $FILE -e sudo $FILE}
+
+# Application show binds/default editor
+super + {_,shift + } e
+    {show_keys.sh, subl3}
+
+# dmenu manual search, spotify
+super + {_,shift + } m
+    {dman, spotify}
+
+# News, tui music player
+super + {_,shift + } n
+    {$TERMINAL -e newsboat, bspwmfloat && $TERMINAL -g 110x30 -e ncmpcpp}
+
+# Htop,gtop system monitor
+super + {_,shift + } i
+    {$TERMINAL -e htop, $TERMINAL -e gtop}
+
+# S,R,lock script,calendar app
+super + {_,shift + } c
+    {power, $TERMINAL -g 70x20-16+30 -e calcurse}
+
+# Default web browser firfox,and vivaldi-stable
+super + {_,shift + } w
+    {$BROWSER, vivaldi-stable}
+
+# Chat client, gui filemanager
+super + {_,shift + } p
+    {discord, pcmanfm}
+
+
+# Hide polybar/Reload bspwm
+super + {_,shift + } b
+    {polybar-msg cmd toggle, ~/.config/bspwm/bspwmrc &}
+
+# Reload sxhkd
+super + Escape
+    pkill -USR1 -x sxhkd
+
+# Fullscreen
+super + f
+  bspc node -t \~fullscreen
+
+
+# Close and kill
+super + {_,shift + }q
+	bspc node -{c,k}
+
+
+# Quit/restart bspwm
+super + alt + {q,r}
+	bspc {quit,wm -r}
+
+
+# Kill screenkey
+super + Scroll_Lock
+    killall screenkey || screenkey
+
+
+# Record audio or video
+super + Home
+    dmenurecord
+
+# kill active recording
+super + shift + End
+    dmenurecord kill
+
+
+
+# ALT + KEYS
+# On/off transparency, pavucontrol
+alt + a
+   bspwmfloat && pavucontrol
+
+alt + b
+   toggleprogram "picom -b"
+
+
+
+# FUNCTION KEYS
+
+
+super + F1
+    zathura ~/.local/bin/Magyarch-bspwm.pdf
+
+
+
+# Increase padding +40
+super + F5
+    bspc config right_padding 40;\
+    bspc config left_padding 40 ;\
+    bspc config top_padding 40 ;\
+    bspc config bottom_padding 40
+
+
+# Edit important conf files with sublime editor
+super + F2
+  edconf.sh
+
+
+# Change display
+super + F3
+    displayselect
+
+# Decrease padding 0
+super + F4
+    bspc config right_padding 0;\
+    bspc config left_padding 0 ;\
+    bspc config top_padding 22 ;\
+    bspc config bottom_padding 1
+
+
+# Start cava if you installed it
+super + F6
+    bspwmfloat && $TERMINAL -e cava
+
+
+# Take screenshot
+super + F7
+    maim pic-full-$(date '+%y%m%d-%H%M-%S').png
+
+# Pick screenshot type
+super + F8
+    maimpick
+
+
+# Mount a USB drive or Android device
+super + F9
+    dmenumount
+
+
+# Unmount a USB drive or Android device
+super + F10
+    dmenuumount
+
+
+# Search with Duckduckgo
+super + F11
+    ducksearch
+
+
+# Mpv floating
+super + F12
+    mpv --geometry=40%+30+30 --title="mpvfloat"
+
+
+# Volume Control
+{XF86AudioRaiseVolume, XF86AudioLowerVolume}
+	amixer set Master {5%+, 5%-}
+
+# Mute volume
+XF86AudioMute
+   amixer set Master toggle
+
+# Brightness
+{XF86MonBrightnessUp, XF86MonBrightnessDown}
+	xbacklight {-inc 5%, -dec 5%}
+
+# BSPWM LAYOUT KEYS
+
+
+#Focus selected desktop FOR QWERTY KEYBOARDS
+super + {1-9,0}
+	bspc desktop -f '^{1-9,10}'
+
+
+#Move window to selected desktop FOR QWERTY KEYBOARDS
+super + shift + {1-9,0}
+    id=$(bspc query -N -n); bspc node -d ^{1-9,10}; bspc node -f ${id}}
+
+
+#Focus selected desktop
+alt + Tab
+	bspc desktop -f '^{1-9,10}'
+
+
+#Focus selected desktop
+super + Tab
+	bspc desktop -f '^{1-9,10}'
+
+
+# Focus/swap windows by direction
+super + {_,shift + }{h,j,k,l}
+	bspc node --{focus,swap} {west,south,north,east}
+
+
+# Flip layout
+super + shift + a
+	bspc node @/ -R 90
+
+
+# Expand tiled space
+alt + ctrl + {h,j,k,l}
+	bspc node {@west -r -10,@south -r +10,@north -r -10,@east -r +10}
+
+
+# Contract tiled space
+super + ctrl + {h,j,k,l}
+	bspc node {@east -r -10,@north -r +10,@south -r -10,@west -r +10}
+
+
+# Increase/decrease window gap on focused desktop
+super + bracket{left,right}
+	bspc config -d focused window_gap $((`bspc config -d focused window_gap` {-,+} 5 ))
+
+
+# Move a floating window
+super + {Left,Down,Up,Right}
+	bspc node -v {-20 0,0 20,0 -20,20 0}}
+
+
+# Set the window state
+super + space
+	bspc node -t {tiled,pseudo_tiled,floating,fullscreen}
+
+
+# Focus parent/brother/first/second for preselection
+super + ctrl + {e,r,t,y}
+	bspc node --focus @{parent,brother,first,second}
+
+
+# Preselect the splitting area for next window on leaf/parent
+super + ctrl + {u,i,o,p}
+	bspc node --presel-dir \~{west,south,north,east}
+
+
+# Define splitting ratio for next window on leaf/parent
+super + ctrl + {_,shift +}{1-9}
+	bspc node {_,@/} --presel-ratio 0.{1-9}
+
+
+# Cancel preselection
+super + ctrl + space
+	bspc node --presel-dir cancel
+
+
+# Make a windoww sticky/non-sticky
+super + o
+    bspc node -g sticky={on,off}
+
+
+
+##########################################################################################
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>END>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+##########################################################################################
+
+
+
+
+
+
+
+
+
+
+
+

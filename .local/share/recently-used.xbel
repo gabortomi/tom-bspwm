@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xbel version="1.0"
+      xmlns:bookmark="http://www.freedesktop.org/standards/desktop-bookmarks"
+      xmlns:mime="http://www.freedesktop.org/standards/shared-mime-info"
+>
+  <bookmark href="file:///home/tamas/Let%C3%B6lt%C3%A9sek/Magyarch-bspwm.pdf" added="2020-06-24T09:06:22Z" modified="2020-06-24T09:06:22Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-06-24T09:06:22Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/pic-full-200627-1840-59.png" added="2020-06-27T16:41:10Z" modified="2020-06-27T16:41:10Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="image/png"/>
+        <bookmark:applications>
+          <bookmark:application name="discord" exec="&apos;discord %u&apos;" modified="2020-06-27T16:41:10Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Let%C3%B6lt%C3%A9sek/2352078_1570515533.pdf" added="2020-06-30T11:00:01Z" modified="2020-06-30T11:00:01Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-06-30T11:00:01Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Let%C3%B6lt%C3%A9sek/2352078_1570515519.pdf" added="2020-06-30T11:00:48Z" modified="2020-06-30T11:00:48Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-06-30T11:00:48Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Dokumentumok/Gabor_EN_CV.pdf" added="2020-06-30T11:01:27Z" modified="2020-06-30T12:53:53Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-06-30T12:53:53Z" count="5"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Dokumentumok/Gabor_HU_CV.pdf" added="2020-06-30T11:19:31Z" modified="2020-06-30T13:01:38Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/pdf"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-06-30T13:01:38Z" count="8"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///run/media/tamas/ESD-USB/DRV_Chipset_AMD_AM4_B550_TP_W10_64_V20409131_20200611R.zip" added="2020-07-01T10:56:09Z" modified="2020-07-01T10:56:09Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="vivaldi-stable" exec="&apos;vivaldi-stable %u&apos;" modified="2020-07-01T10:56:09Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Let%C3%B6lt%C3%A9sek/DRV_Chipset_AMD_AM4_B550_TP_W10_64_V20409131_20200611R.zip" added="2020-07-01T11:03:36Z" modified="2020-07-01T11:04:22Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/zip"/>
+        <bookmark:applications>
+          <bookmark:application name="File Roller" exec="&apos;file-roller&apos;" modified="2020-07-01T11:04:22Z" count="2"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Let%C3%B6lt%C3%A9sek/chipset%20driver" added="2020-07-01T11:04:41Z" modified="2020-07-01T11:04:41Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="inode/directory"/>
+        <bookmark:applications>
+          <bookmark:application name="Archívumkezelő" exec="&apos;file-roller %u&apos;" modified="2020-07-01T11:04:41Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+  <bookmark href="file:///home/tamas/Let%C3%B6lt%C3%A9sek/cronpacman" added="2020-07-02T05:13:26Z" modified="2020-07-02T05:13:26Z" visited="1969-12-31T23:59:59Z">
+    <info>
+      <metadata owner="http://freedesktop.org">
+        <mime:mime-type type="application/octet-stream"/>
+        <bookmark:applications>
+          <bookmark:application name="Firefox" exec="&apos;firefox %u&apos;" modified="2020-07-02T05:13:26Z" count="1"/>
+        </bookmark:applications>
+      </metadata>
+    </info>
+  </bookmark>
+</xbel>

@@ -1,0 +1,324 @@
+[global/wm]
+;https://github.com/jaagr/polybar/wiki/Configuration#global-wm-settings
+margin-top = 0
+margin-bottom = 0
+
+[settings]
+;https://github.com/jaagr/polybar/wiki/Configuration#application-settings
+throttle-output = 5
+throttle-output-for = 10
+throttle-input-for = 30
+screenchange-reload = true
+compositing-background = over
+compositing-foreground = over
+compositing-overline = over
+compositing-underline = over
+compositing-border = over
+
+; Define fallback values used by all module formats
+format-foreground = #c83737
+format-background = #00FF00
+format-underline =
+format-overline =
+format-spacing =
+format-padding =
+format-margin =
+format-offset =
+
+[colors]
+; My theme ============
+background = #2f2b26
+foreground = #c3cdc8
+alert = #fff68f
+volume-min = #a3be8c
+volume-med = #ebcb8b
+volume-max = #bf616a
+text = #99d1ce
+; =======================
+
+[bar/mainbar-bspwm]
+monitor = ${env:MONITOR:DisplayPort-0}
+;monitor-fallback = HDMI1
+width = 100%
+height = 23
+offset-x = 0
+offset-y = 0
+radius = 0.0
+fixed-center = true
+bottom = false
+;separator = |
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+line-size = 1
+line-color = #f00
+
+wm-restack = bspwm
+override-redirect = true
+
+; Enable support for inter-process messaging
+; See the Messaging wiki page for more details.
+enable-ipc = true
+
+#border-size = 0
+;border-left-size = 25
+;border-right-size = 25
+;border-top-size = 0
+border-bottom-size = 1
+border-color = #c3cdc8
+
+padding-left = 1
+padding-right = 1
+
+module-margin-left = 0
+module-margin-right = 0
+
+;https://github.com/jaagr/polybar/wiki/Fonts
+font-0 = "Iosevka Nerd Font:size=12;0"
+font-1 = "JetBrains Mono:size=11;0"
+font-2 = "Font Awesome 5 Free:style=Regular:pixelsize=12;0"
+font-3 = "Font Awesome 5 Free:style=Solid:pixelsize=12;0"
+font-4 = "Font Awesome 5 Brands:pixelsize=12;0"
+font-5= "Joy Pixels:scale=11;"
+
+modules-left = bspwm2
+modules-center = xwindow
+modules-right = cpu-graph mem temperature pulseaudio battery date 
+
+#tray-position = none
+
+tray-detached = false
+tray-offset-x = 0
+tray-offset-y = 0
+tray-padding = 2
+tray-maxsize = 20
+tray-scale = 1.0
+tray-position = right
+tray-background = ${colors.background}
+
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 2
+
+[module/bspwm2]
+type = internal/bspwm
+
+ws-icon-0 = 1;
+ws-icon-1 = 2;
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5;
+ws-icon-5 = 6;
+ws-icon-6 = 7;
+ws-icon-7 = 8;
+ws-icon-8 = 9;
+ws-icon-9 = 10;
+;ws-icon-default = 
+
+
+format = <label-state> <label-mode>
+
+label-focused = %icon%
+label-focused-background = ${colors.background}
+#label-focused-underline= #179ae3
+label-focused-padding = 1
+label-focused-foreground = #2e8b57
+
+label-occupied = %icon%
+label-occupied-padding = 1
+label-occupied-background = ${colors.background}
+
+label-urgent = %icon%
+label-urgent-padding = 1
+label-urgent-foreground = #ffffff
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground}
+label-empty-padding = 1
+label-empty-background = ${colors.background}
+label-monocle = "  "
+label-monocle-foreground = ${colors.foreground}
+label-tiled = "  "
+label-tiled-foreground = ${colors.foreground}
+label-fullscreen = "  "
+label-fullscreen-foreground = ${colors.foreground}
+label-floating = "  "
+label-floating-foreground = ${colors.foreground}
+label-pseudotiled = "  "
+label-pseudotiled-foreground = ${colors.foreground}
+label-locked = "  "
+label-locked-foreground = ${colors.foreground}
+label-sticky = "  "
+label-sticky-foreground = ${colors.foreground}
+label-private =  "     "
+label-private-foreground = ${colors.foreground}
+
+; Separator in between workspaces
+;label-separator = |
+;label-separator-padding = 10
+;label-separator-foreground = #ffb52a
+
+#format-foreground = ${colors.foreground}
+#format-background = ${colors.background}
+
+################################################################################
+
+[module/date]
+;https://github.com/jaagr/polybar/wiki/Module:-date
+type = custom/script
+exec = ~/.local/bin/statusbar/clock
+click-left = bspwmfloat && $TERMINAL -g 70x20-16+0 -e calcurse &
+click-right = ~/.local/bin/calcursekill
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 2
+format-prefix = " 📅  "
+interval=303
+
+[module/cpu-graph]
+type = internal/cpu
+interval = 0.08
+;format = " <ramp-coreload>"
+format = " <ramp-coreload>"
+format-margin = 1
+ramp-coreload-0 = ▁
+ramp-coreload-0-foreground = ${colors.foreground}
+ramp-coreload-1 = ▂
+ramp-coreload-1-foreground = ${colors.foreground}
+ramp-coreload-2 = ▃
+ramp-coreload-2-foreground = #d3ffce
+ramp-coreload-3 = ▄
+ramp-coreload-3-foreground = #5ac18e
+ramp-coreload-4 = ▅
+ramp-coreload-4-foreground = #fff68f
+ramp-coreload-5 = ▆
+ramp-coreload-5-foreground = #fff68f
+ramp-coreload-6 = ▇
+ramp-coreload-6-foreground = #ff4040
+ramp-coreload-7 = █
+ramp-coreload-7-foreground = #ff4040
+ramp-coreload-font = 3
+format-background = ${colors.background}
+format-foreground = ${colors.foreground}
+;format-underline = ${colors.foreground-alt}
+format-padding = 2
+
+[module/mem]
+type = custom/script
+exec = ~/.local/bin/statusbar/memory
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 2
+interval = 1
+format-prefix = "💡 "
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 75
+
+format = <ramp> <label>
+format-warn = <ramp> <label-warn>
+
+label = %temperature-c%
+label-warn = %temperature-c%
+label-warn-foreground = #fd0073
+;label-warn-background = ${colors.background}
+
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground}
+format-foreground = ${colors.foreground}
+format-background = ${colors.background}
+format-padding = 2
+
+[module/pavolume]
+type = custom/script
+tail = true
+label = %output%
+exec = $HOME/.local/bin/statusbar/volume &
+click-left = bspwmfloat && exec pavucontrol
+format-foreground = ${colors.foreground}
+format-prefix-foreground = #8d0000
+format-background = ${colors.background}
+format-padding = 2
+interval = 1
+
+[module/battery]
+type = internal/battery
+
+full-at = 99
+
+battery = BAT0
+adapter = AC0
+
+poll-interval = 5
+
+format-charging = <animation-charging> <label-charging>
+format-discharging = <ramp-capacity> <label-discharging>
+
+label-charging =  %percentage%%
+label-discharging =  %percentage%%
+
+label-full = Full
+
+ramp-capacity-0 = " "
+ramp-capacity-1 = " "
+ramp-capacity-2 = " "
+ramp-capacity-3 = " "
+ramp-capacity-4 = " "
+
+animation-charging-0 = 
+animation-charging-1 = 
+animation-charging-2 = 
+animation-charging-3 = 
+animation-charging-4 = 
+animation-charging-framerate = 750
+
+format-charging-background = ${colors.background}
+format-discharging-background = ${colors.background}
+format-charging-foreground = ${colors.foreground}                                                    
+format-discharging-foreground = ${colors.foreground}
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+; Sink to be used, if it exists (find using `pacmd list-sinks`, name field)
+; If not, uses default sink
+sink = alsa_output.pci-0000_00_0e.0.analog-stereo
+
+; Use PA_VOLUME_UI_MAX (~153%) if true, or PA_VOLUME_NORM (100%) if false
+; Default: true
+use-ui-max = true
+
+; Interval for volume increase/decrease (in percent points)
+; Default: 5
+interval = 5
+
+format-volume = <ramp-volume> <label-volume>
+format-muted = <label-muted>
+label-volume = %percentage%%
+
+label-muted =  
+label-muted-foreground = #666
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+format-volume-background = ${colors.background}
+format-volume-foreground = ${colors.foreground}
+label-volume-foreground = ${colors.foreground}
+label-muted-background = ${colors.background}
+
+; vim:ft=dosini
