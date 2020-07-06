@@ -11,73 +11,64 @@
 #mkswap /mnt/swapfile
 #swapon /mnt/swapfile  
 
+arch_chroot() {
+    arch-chroot /mnt /bin/bash -c "${1}"
+}
+
+
+
 pacman -S --needed --noconfirm reflector
 
 reflector --verbose -l 20 -p https --sort rate --save /etc/pacman.d/mirrorlist
 
 pacstrap /mnt base base-devel linux linux-firmware git
 
+arch_chroot "mkdir -p /mnt/mnt/etc/skel"
+arch_chroot "https://github.com/gabortomi/tom-bspwm.git /mnt/mnt/etc/skel/"
+arch_chroot "cp -rfT /mnt/mnt/etc/skel/ /etc/skel/"
 
+genfstab -p /mnt >> /mnt/etc/fstab
 
-func_install() {
-	if pacman -Qi $1 &> /dev/null; then
-		tput setaf 2
-  		echo "###############################################################################"
-  		echo "################## The package "$1" is already installed"
-      	echo "###############################################################################"
-      	echo
-		tput sgr0
-	else
-    	tput setaf 3
-    	echo "###############################################################################"
-    	echo "##################  Installing package "  $1
-    	echo "###############################################################################"
-    	echo
-    	tput sgr0
-    	sudo pacman -S --noconfirm --needed $1
-    fi
-}
+cp /etc/pacman.d/mirrorlist /mnt/etc/pacman.d/mirrorlist
+echo "" >> /mnt/etc/pacman.conf;echo "[multilib]" >> /mnt/etc/pacman.conf;echo "Include = /etc/pacman.d/mirrorlist" >> /mnt/etc/pacman.conf
 
-list=(
-xdo
-feh
-sutils-git
-xtitle-git
-polybar
-pulseaudio
-pulseaudio-alsa
-)
+arch_chroot "pacman -Syy"
 
-count=0
+touch .passwd
+echo -e "$rootpass1\n$rootpass2" > .passwd
+arch_chroot "passwd root" < .passwd >/dev/null
+rm .passwd
+    
+arch_chroot "useradd -m -g users -G adm,lp,wheel,power,audio,video -s /bin/bash $user_name"
+touch .passwd
+echo -e "$userpass1\n$userpass2" > .passwd
+arch_chroot "passwd $user_name" < .passwd >/dev/null
+rm .passwd
 
-for name in "${list[@]}" ; do
-	count=$[count+1]
-	tput setaf 3;echo "Installing package nr.  "$count " " $name;tput sgr0;
-	func_install $name
-done
+echo "hu_HU.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+echo "en_US.UTF-8 UTF-8" >> /mnt/etc/locale.gen
+arch_chroot "locale-gen"
+export LANG=hu_HU.UTF-8
 
-###############################################################################
+echo "KEYMAP=\"hu""  > /mnt/etc/vconsole.conf
 
-tput setaf 6;echo "################################################################"
-echo "Copying all files and folders from /etc/skel to ~"
-echo "################################################################"
-echo;tput sgr0
-cp -Rf ~/.config ~/.config-backup-$(date +%Y.%m.%d-%H.%M.%S)
-cp -arf /etc/skel/. ~
+arch_chroot "ln -s /usr/share/zoneinfo/Europe/Budapest /etc/localtime"
+arch_chroot "hwclock --systohc --utc"
+arch_chroot "echo Archbook > /etc/hostname"
+echo "%wheel ALL=(ALL) ALL" >> /mnt/etc/sudoers
 
-tput setaf 5;echo "################################################################"
-echo "Enabling lightdm as display manager"
-echo "################################################################"
-echo;tput sgr0
-sudo systemctl enable lightdm.service -f
+arch_chroot "pacman -S --noconfirm --needed xorg-server xorg-apps xorg-xinit xorg-twm alsa-utils pulseaudio pulseaudio-alsa xf86-input-libinput networkmanager xdg-user-dirs xdg-utils gvfs gvfs-mtp man-db neofetch "
 
-tput setaf 7;echo "################################################################"
-echo "You now have a very minimal functional desktop"
-echo "################################################################"
-echo;tput sgr0
+arch_chroot "cd /home/${user_name} ; su ${user_name} -c 'git clone https://aur.archlinux.org/yay-bin' ; cd yay-bin ; su ${user_name} -c 'makepkg' ; pacman -U yay-bin*x86_64* --noconfirm ; cd .. ; rm -rf yay-bin"
 
-tput setaf 11;
-echo "################################################################"
-echo "Reboot your system"
-echo "################################################################"
-echo;tput sgr0
+processor=$(lspci -n | awk -F " " '{print $2 $3}' | grep ^"06" | awk -F ":" '{print $2}' | sed -n  '1p')
+
+if [ "$processor" = "8086" ]
+then
+    pacstrap /mnt intel-ucode
+elif [ "$processor" = "1022" ]
+then
+    pacstrap /mnt amd-ucode
+fi
+
+pacstrap /mnt xf86-video-intel libva-intel-driver lib32-mesa
