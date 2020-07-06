@@ -11,6 +11,27 @@
 #mkswap /mnt/swapfile
 #swapon /mnt/swapfile  
 
+Parted() {
+    parted --script "$dev" "$1"
+}
+
+dd if=/dev/zero of="$dev" bs=512 count=1
+Parted "mklabel gpt"
+Parted "mkpart primary fat32 1MiB 513MiB"
+Parted "mkpart primary ext4 513MiB 100%"
+Parted "set 1 boot on"
+mkfs.fat -F32 "$gpt_part"
+mkfs.ext4 -F "$root_part"
+mount "$root_part" /mnt
+mkdir -p /mnt/boot/efi
+mount "$gpt_part" /mnt/boot/efi
+touch /mnt/swapfile
+dd if=/dev/zero of=/mnt/swapfile bs=1M count="${swap_space}"
+chmod 600 /mnt/swapfile
+mkswap /mnt/swapfile
+swapon /mnt/swapfile
+swapfile="yes"
+
 arch_chroot() {
     arch-chroot /mnt /bin/bash -c "${1}"
 }
