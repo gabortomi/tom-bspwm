@@ -72,3 +72,15 @@ then
 fi
 
 pacstrap /mnt xf86-video-intel libva-intel-driver lib32-mesa
+
+arch_chroot "systemctl enable NetworkManager"
+
+pacstrap /mnt grub efibootmgr
+arch_chroot "grub-install --target=x86_64-efi --efi-directory=/boot/efi --bootloader-id=archbook --recheck"
+arch_chroot "grub-mkconfig -o /boot/grub/grub.cfg"
+
+arch_chroot "mkinitcpio -p linux"
+
+umount -R /mnt
+
+shutdown -r now
