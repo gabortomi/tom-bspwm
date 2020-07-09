@@ -10,6 +10,8 @@ export READER="zathura"
 export FILE="vifm"
 export GTK2_RC_FILES="$HOME/.config/gtk-2.0/gtkrc-2.0"
 
+export WINIT_X11_SCALE_FACTOR=1
+
 # less/man colors
 export LESS=-R
 export LESS_TERMCAP_mb="$(printf '%b' '[1;31m')"; a="${a%_}"
