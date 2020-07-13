@@ -11,8 +11,6 @@ HISTSIZE= HISTFILESIZE=
 
 
 # prompt customization
-export PS1="\[$(tput bold)\]\[$(tput setaf 1)\][\[$(tput setaf 1)\]\u\[$(tput setaf 7)\]@\[$(tput setaf 7)\]\h \[$(tput setaf 2)\]\t\W\[$(tput setaf 2)\]]\[$(tput setaf 2)\]\\$ \[$(tput sgr0)\]"
-#export PS1="\u@\h [\$(date +%H:%M:%S)] ~ "
 
 
 # Load shortcut aliases
