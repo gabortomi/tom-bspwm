@@ -11,4 +11,3 @@ dunst &                 # dunst for notifications
 feh --no-fehbg --bg-scale /usr/share/backgrounds/magyarch/wallpaper.png &
 zathura ~/.local/bin/Magyarch-bspwm.pdf &
 redshift-gtk &
-rxvt &
