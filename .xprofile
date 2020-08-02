@@ -9,5 +9,5 @@ dunst &                 # dunst for notifications
 (sleep 1s && ~/.config/polybar/launch.sh) &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 feh --no-fehbg --bg-scale /usr/share/backgrounds/magyarch/wallpaper.png &
-zathura ~/.local/bin/Magyarch-bspwm.pdf &
+#zathura ~/.local/bin/Magyarch-bspwm.pdf &
 redshift-gtk &
