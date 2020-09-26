@@ -1,7 +1,7 @@
 #!/bin/sh
 
 sxhkd &	# Bind keys
-setxkbmap -layout hu &
+#setxkbmap -layout hu &
 xsetroot -cursor_name left_ptr &
 unclutter &		# Remove mouse when idle
 picom --config ~/.config/picom.conf &		# xcompmgr for transparency
@@ -10,4 +10,4 @@ dunst &                 # dunst for notifications
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
 feh --no-fehbg --bg-scale /usr/share/backgrounds/magyarch/wallpaper.png &
 #zathura ~/.local/bin/Magyarch-bspwm.pdf &
-redshift-gtk &
+redshift -l 47.5:19.1 -t 5700:3600 -g 0.9 -m randr &
