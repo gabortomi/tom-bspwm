@@ -1,0 +1,78 @@
+2020/11/18-07:31:44.140 5e6 Reusing MANIFEST /home/tamas/.config/vivaldi/Default/Local Storage/leveldb/MANIFEST-000001
+2020/11/18-07:31:44.140 5e6 Recovering log #14
+2020/11/18-07:31:44.141 5e6 Reusing old log /home/tamas/.config/vivaldi/Default/Local Storage/leveldb/000014.log 
+2020/11/18-07:33:31.170 701 Level-0 table #18: started
+2020/11/18-07:33:31.196 701 Level-0 table #18: 515198 bytes OK
+2020/11/18-07:33:31.205 701 Delete type=0 #14
+2020/11/18-07:33:31.206 64b Compacting 4@0 + 1@1 files
+2020/11/18-07:33:31.232 64b Generated table #19@0: 122 keys, 514866 bytes
+2020/11/18-07:33:31.233 64b Compacted 4@0 + 1@1 files => 514866 bytes
+2020/11/18-07:33:31.238 64b compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/11/18-07:33:31.239 64b Delete type=2 #15
+2020/11/18-07:33:31.239 64b Delete type=2 #18
+2020/11/18-07:33:31.239 64b Delete type=2 #12
+2020/11/18-07:33:31.239 64b Delete type=2 #10
+2020/11/18-07:33:31.239 64b Delete type=2 #7
+2020/11/18-07:33:35.973 649 Level-0 table #21: started
+2020/11/18-07:33:35.995 649 Level-0 table #21: 508534 bytes OK
+2020/11/18-07:33:35.997 649 Delete type=0 #17
+2020/11/18-11:10:13.633 cf5 Level-0 table #23: started
+2020/11/18-11:10:13.659 cf5 Level-0 table #23: 222051 bytes OK
+2020/11/18-11:10:13.673 cf5 Delete type=0 #20
+2020/11/18-12:19:48.774 cf6 Level-0 table #25: started
+2020/11/18-12:19:48.801 cf6 Level-0 table #25: 227058 bytes OK
+2020/11/18-12:19:48.809 cf6 Delete type=0 #22
+2020/11/18-12:23:57.778 105f Level-0 table #27: started
+2020/11/18-12:23:57.805 105f Level-0 table #27: 569141 bytes OK
+2020/11/18-12:23:57.823 105f Delete type=0 #24
+2020/11/18-12:23:57.824 f99 Compacting 4@0 + 1@1 files
+2020/11/18-12:23:57.870 f99 Generated table #28@0: 149 keys, 801527 bytes
+2020/11/18-12:23:57.871 f99 Compacted 4@0 + 1@1 files => 801527 bytes
+2020/11/18-12:23:57.872 f99 compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/11/18-12:23:57.872 f99 Delete type=2 #21
+2020/11/18-12:23:57.873 f99 Delete type=2 #19
+2020/11/18-12:23:57.873 f99 Delete type=2 #23
+2020/11/18-12:23:57.873 f99 Delete type=2 #25
+2020/11/18-12:23:57.873 f99 Delete type=2 #27
+2020/11/18-12:24:06.399 f33 Level-0 table #30: started
+2020/11/18-12:24:06.427 f33 Level-0 table #30: 565385 bytes OK
+2020/11/18-12:24:06.435 f33 Delete type=0 #26
+2020/11/18-12:24:41.383 f99 Level-0 table #32: started
+2020/11/18-12:24:41.416 f99 Level-0 table #32: 566054 bytes OK
+2020/11/18-12:24:41.434 f99 Delete type=0 #29
+2020/11/18-12:24:54.163 105f Level-0 table #34: started
+2020/11/18-12:24:54.193 105f Level-0 table #34: 565431 bytes OK
+2020/11/18-12:24:54.207 105f Delete type=0 #31
+2020/11/18-12:25:00.537 f33 Level-0 table #36: started
+2020/11/18-12:25:00.568 f33 Level-0 table #36: 565777 bytes OK
+2020/11/18-12:25:00.586 f33 Delete type=0 #33
+2020/11/18-12:25:00.589 105f Compacting 4@0 + 1@1 files
+2020/11/18-12:25:00.665 105f Generated table #37@0: 151 keys, 801927 bytes
+2020/11/18-12:25:00.665 105f Compacted 4@0 + 1@1 files => 801927 bytes
+2020/11/18-12:25:00.667 105f compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/11/18-12:25:00.668 105f Delete type=2 #32
+2020/11/18-12:25:00.668 105f Delete type=2 #30
+2020/11/18-12:25:00.668 105f Delete type=2 #34
+2020/11/18-12:25:00.668 105f Delete type=2 #28
+2020/11/18-12:25:00.668 105f Delete type=2 #36
+2020/11/18-12:25:05.548 f33 Level-0 table #39: started
+2020/11/18-12:25:05.573 f33 Level-0 table #39: 565385 bytes OK
+2020/11/18-12:25:05.592 f33 Delete type=0 #35
+2020/11/18-12:26:54.163 10d2 Level-0 table #41: started
+2020/11/18-12:26:54.188 10d2 Level-0 table #41: 565961 bytes OK
+2020/11/18-12:26:54.206 10d2 Delete type=0 #38
+2020/11/18-13:10:54.165 130c Level-0 table #43: started
+2020/11/18-13:10:54.206 130c Level-0 table #43: 586227 bytes OK
+2020/11/18-13:10:54.226 130c Delete type=0 #40
+2020/11/18-13:22:13.633 1476 Level-0 table #45: started
+2020/11/18-13:22:13.671 1476 Level-0 table #45: 583271 bytes OK
+2020/11/18-13:22:13.680 1476 Delete type=0 #42
+2020/11/18-13:22:13.682 142e Compacting 4@0 + 1@1 files
+2020/11/18-13:22:13.773 142e Generated table #46@0: 151 keys, 817334 bytes
+2020/11/18-13:22:13.773 142e Compacted 4@0 + 1@1 files => 817334 bytes
+2020/11/18-13:22:13.775 142e compacted to: files[ 0 1 1 0 0 0 0 ]
+2020/11/18-13:22:13.776 142e Delete type=2 #37
+2020/11/18-13:22:13.776 142e Delete type=2 #43
+2020/11/18-13:22:13.776 142e Delete type=2 #39
+2020/11/18-13:22:13.776 142e Delete type=2 #45
+2020/11/18-13:22:13.776 142e Delete type=2 #41

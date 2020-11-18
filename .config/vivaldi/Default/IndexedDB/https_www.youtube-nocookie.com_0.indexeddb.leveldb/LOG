@@ -1,0 +1,5 @@
+2020/11/15-20:59:01.336 17db Reusing MANIFEST /home/tamas/.config/vivaldi/Default/IndexedDB/https_www.youtube-nocookie.com_0.indexeddb.leveldb/MANIFEST-000001
+2020/11/15-20:59:03.346 17d6 Level-0 table #5: started
+2020/11/15-20:59:03.349 17d6 Level-0 table #5: 400 bytes OK
+2020/11/15-20:59:03.351 17d6 Delete type=0 #3
+2020/11/15-20:59:03.352 17d6 Manual compaction at level-0 from (begin) .. (end); will stop at (end)

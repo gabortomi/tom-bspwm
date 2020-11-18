@@ -1,0 +1,19 @@
+2020/11/18-07:19:05.775 3ff Reusing MANIFEST /home/tamas/.config/vivaldi/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/MANIFEST-000001
+2020/11/18-07:19:05.776 3ff Recovering log #13
+2020/11/18-07:19:05.817 3ff Reusing old log /home/tamas/.config/vivaldi/Default/Local Extension Settings/cjpalhdlnbpafiamejdnhcphjbkeiagm/000013.log 
+2020/11/18-07:27:08.353 3da Level-0 table #17: started
+2020/11/18-07:27:08.404 3da Level-0 table #17: 2138467 bytes OK
+2020/11/18-07:27:08.422 3da Delete type=0 #13
+2020/11/18-07:27:08.423 53d Compacting 4@0 + 1@1 files
+2020/11/18-07:27:08.507 53d Generated table #18@0: 16 keys, 2795271 bytes
+2020/11/18-07:27:08.600 53d Generated table #19@0: 19 keys, 1094213 bytes
+2020/11/18-07:27:08.600 53d Compacted 4@0 + 1@1 files => 3889484 bytes
+2020/11/18-07:27:08.602 53d compacted to: files[ 0 2 1 0 0 0 0 ]
+2020/11/18-07:27:08.602 53d Delete type=2 #14
+2020/11/18-07:27:08.602 53d Delete type=2 #12
+2020/11/18-07:27:08.602 53d Delete type=2 #17
+2020/11/18-07:27:08.602 53d Delete type=2 #10
+2020/11/18-07:27:08.602 53d Delete type=2 #8
+2020/11/18-07:27:08.813 53d Level-0 table #21: started
+2020/11/18-07:27:08.875 53d Level-0 table #21: 2778244 bytes OK
+2020/11/18-07:27:08.877 53d Delete type=0 #16
