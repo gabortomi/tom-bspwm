@@ -1,8 +1,0 @@
-2020/11/18-07:31:44.995 64b Reusing MANIFEST /home/tamas/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/MANIFEST-000001
-2020/11/18-07:31:44.996 64b Recovering log #16
-2020/11/18-07:31:44.996 64b Reusing old log /home/tamas/.config/vivaldi/Default/IndexedDB/chrome-extension_cjpalhdlnbpafiamejdnhcphjbkeiagm_0.indexeddb.leveldb/000016.log 
-2020/11/18-07:31:47.001 5f5 Level-0 table #20: started
-2020/11/18-07:31:47.001 5f5 Level-0 table #20: 0 bytes OK
-2020/11/18-07:31:47.005 5f5 Delete type=0 #16
-2020/11/18-07:31:47.005 5f5 Manual compaction at level-0 from (begin) .. (end); will stop at (end)
-2020/11/18-07:31:47.005 5f5 Manual compaction at level-1 from (begin) .. (end); will stop at (end)
