@@ -1,18 +1,120 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
-pgrep -x sxhkd > /dev/null || sxhkd &
+# If refreshing bspwm, remove all previous rules to prevent doubling up.
+bspc rule -r "*"
 
-bspc monitor -d I II III IV V VI VII VIII IX X
+# For other panels.
+#[ -e "$PANEL_FIFO" ] && bspc subscribe report > "$PANEL_FIFO" &
+#pgrep -x panel > /dev/null || panel &
 
+
+#LAUNCHERS
+killall cleanfullscreen
+cleanfullscreen &
+
+
+#Bspwm configs
 bspc config border_width         2
-bspc config window_gap          12
-
+bspc config window_gap           8
+bspc config top_padding          33
+bspc config bottom_padding       8
+bspc config right_padding        8
+bspc config left_padding         8
 bspc config split_ratio          0.52
-bspc config borderless_monocle   true
-bspc config gapless_monocle      true
 
-bspc rule -a Gimp desktop='^8' state=floating follow=on
-bspc rule -a Chromium desktop='^2'
-bspc rule -a mplayer2 state=floating
-bspc rule -a Kupfer.py focus=on
+
+#bspc config borderless_monocle    true  # no borders in monocle layout.
+#bspc config gapless_monocle       true  # no gaps in monocle layout.
+#bspc config single_monocle        true  # use monocle layout if there is only 1 window.
+bspc config automatic_scheme alternate
+#bspc config initial_polarity second_child
+bspc config focus_follows_pointer true
+bspc config external_rules_command $HOME/.config/bspwm/spotify_rules
+bspc config external_rules_command $HOME/.local/bin/float.sh
+#bspc config external_rules_command $HOME/.config/bspwm/external_rules.sh
+bspc config remove_disabled_monitors true
+bspc config merge_overlapping_monitors true
+
+
+#Moving foating windows
+bspc config pointer_modifier mod4
+bspc config pointer_action1 move
+bspc config pointer_action2 resize_side
+bspc config pointer_action3 resize_corner
+#bspc config remove_disabled_monitors true
+#bspc config merge_overlapping_monitors true
+
+
+#Set the border colors
+bspc config normal_border_color $(awk '$1 ~ "background" { print $2 }' ~/.Xresources)
+bspc config active_border_color $(awk '$1 ~ "green" { print $2 }' ~/.Xresources)
+bspc config focused_border_color $(awk '$1 ~ "green" { print $2 }' ~/.Xresources)
+bspc config presel_border_color $(awk '$1 ~ "red" { print $2 }' ~/.Xresources)
+bspc config urgent_border_color $(awk '$1 ~ "magenta" { print $2 }' ~/.Xresources)
+
+
+#Single monitor
+#bspc monitor -d 1 2 3 4 5 6 7 8 9 10
+#bspc monitor  -d "☢️ " "🤬 " "⚒️ " "🍭 " "🎲 " "🎬 " "🔰 "  "🎯 " "📀 "
+#bspc monitor -d "Web " "Chat " "Edit " "Music " "Tor " "Video " "Vbox " "File " "Float "
+bspc monitor -d " "  " "  " "  " "  " "  " "  " "  " "  " "  " "
+#bspc monitor -d "I " "II " "III " "IV " "V " "VI " "VII " "VIII " "IX " "X "
+
+
+# If you use this then download btops from aur.
+#btops &
+
+
+#Dual monitor
+#bspc monitor LVDS1 -d 1 2 3 4
+#bspc monitor DP3 -d  5 6 7 8 9
+
+
+#Application Rules
+#Open applications on specific workspaces
+bspc rule -a Brave-browser desktop='^1'
+bspc rule -a discord desktop='^2' follow=on
+bspc rule -a TelegramDesktop desktop='^2' follow=on
+bspc rule -a Subl3 desktop='^3' follow=on
+bspc rule -a Steam desktop='^4' state=floating
+bspc rule -a Vlc desktop='^7' state=fullscreen follow=on
+bspc rule -a Pcmanfm desktop='^8' follow=on
+bspc rule -a Spotify desktop='^9' follow=on
+bspc rule -a VirtualBox Manager state=fullscreen
+bspc rule -a VirtualBox Machine state=fullscreen
+#bspc rule -a Ulauncher  border=off
+#bspc rule -a burp-StartBurp desktop='^9' state=floating follow=on
+
+
+# For scratchpad in bspwm/scripts in .local/bin
+#bspc rule -a scratchterm hidden=on sticky=on state=floating rectangle=900x500+540+200
+#st -c scratchterm &
+
+
+#Floating apps
+#bspc rule -a feh state=floating
+bspc rule -a qView state=floating
+bspc rule -a Pulseaudio-equalizer-gtk  state=floating
+bspc rule -a Gpick state=floating
+bspc rule -a Lxappearance state=floating
+bspc rule -a Pavucontrol state=floating
+bspc rule -a Pcmanfm:Dialog state=floating center=true
+bspc rule -a URxvt:Newsboat state=floating center=on
+bspc rule -a URxvt:ncmpcpp state=floating center=on
+bspc rule -a URxvt state=floating
+bspc rule -a Galculator state=floating
+bspc rule -a $TERMFLOAT:calcurse state=floating rectangle=70x20-620+30
+bspc rule -a Sxiv state=floating
+bspc rule -a mpv state=floating
+
+
+#polybar hidden when fullscreen for vlc, youtube, mpv ...
+#find out the name of your monitor with xrandr
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DisplayPort-0)
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_DisplayPort-1)
+#xdo below -t $(xdo id -n root) $(xdo id -a polybar-main_HDMI1)
+bspc rule -a polybar manage=off
 bspc rule -a Screenkey manage=off
+
+
+###########END####################################################################
