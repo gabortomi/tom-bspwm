@@ -49,11 +49,11 @@ text = #99d1ce
 [bar/mainbar-bspwm]
 monitor = ${env:MONITOR}
 ;monitor-fallback = HDMI1
-width = 90%
+width = 100%
 height = 23
-offset-x = 100
+offset-x = 0
 offset-y = 0
-radius = 2.0
+radius = 0
 fixed-center = false
 bottom = false
 ;separator = |
@@ -103,7 +103,7 @@ tray-padding = 2
 tray-maxsize = 22
 tray-scale = 1.0
 tray-position = right
-tray-background = ${colors.foreground}
+tray-background = ${colors.background}
 
 
 # scroll-up = bspwm-desknext
