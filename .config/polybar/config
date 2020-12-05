@@ -90,9 +90,9 @@ font-1 = "JetBrains Mono:size=10;1"
 font-2 = "FontAwesome:size=12;1"
 font-3 = "Joy Pixels:scale=10;1"
 
-modules-left = rofi bspwm xwindow
+modules-left = bspwm xwindow
 modules-center = cpu-graph 
-modules-right = itemp mem weather date pavolume power
+modules-right = itemp mem battery pavolume date
 
 #tray-position = none
 
