@@ -1,14 +1,14 @@
 #!/bin/sh
 
+setbg &		# Set the background
 sxhkd &	# Bind keys
-#setxkbmap -layout hu &
 xsetroot -cursor_name left_ptr &
 unclutter &		# Remove mouse when idle
 picom --config ~/.config/picom.conf &		# xcompmgr for transparency
 dunst &                 # dunst for notifications
 (sleep 1s && ~/.config/polybar/launch.sh) &
+#conky &
+#blueberry-tray &
+#xrandr --output LVDS1 --mode 1366x768 --output HDMI1 --mode 1920x1080 --right-of LVDS1 &
 /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1 &
-feh --no-fehbg --bg-scale /usr/share/backgrounds/magyarch/wallpaper.png &
-#zathura ~/.local/bin/Magyarch-bspwm.pdf &
 redshift -l 47.5:19.1 -t 5700:3600 -g 0.9 -m randr &
-

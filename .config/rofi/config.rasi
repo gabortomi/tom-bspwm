@@ -1,0 +1,33 @@
+configuration {
+	modi: "window,run,drun";
+	width: 840;
+	lines: 12;
+	columns: 2;
+	font: "JetBrains Mono 10";
+	bw: 0;
+	padding: 40;
+	fixed-num-lines: true;
+	terminal: "$TERMINAL";
+	ssh-client: "ssh";
+	ssh-command: "{terminal} -e {ssh-client} {host}";
+	run-command: "{cmd}";
+	case-sensitive: false;
+	eh: 1;
+	auto-select: true;
+	parse-hosts: true;
+	matching: "normal";
+	line-margin: 10;
+	line-padding: 2;
+	separator-style: "none";
+	hide-scrollbar: true;
+	fake-transparency: true;
+	scrollbar-width: 3;
+	scroll-method: 1;
+	window-format: "{t}";
+	color-normal: "#2f2b26,   #CDCFD0,  #2f2b26,   #2e8b57,  #CDCFD0,";
+	color-urgent: "#2f2b26,   #CDCFD0,  #2f2b26,   #2e8b57,  #CDCFD0,";
+	color-active: "#2f2b26,   #CDCFD0,  #2f2b26,   #2e8b57,  #CDCFD0,";
+	color-window: "#2f2b26,     #05090F,      #ebedf8,";
+	me-select-entry: "MouseSecondary";
+	me-accept-entry: "MousePrimary";
+}

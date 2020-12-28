@@ -1,16 +1,16 @@
 [global]
     monitor = 0
     follow = keyboard
-    geometry = "350x8-0+30"
+    geometry = "350x5-0+24"
     indicate_hidden = yes
     shrink = yes
-    #transparency = 80
+    transparency = 20
     notification_height = 0
     separator_height = 2
     padding = 0
     horizontal_padding = 8
     frame_width = 3
-    frame_color = "#2f2b26"
+    frame_color = "#282828"
 
     # Define a color for the separator.
     # possible values are:
@@ -75,19 +75,19 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#2f2b26"
+    background = "#282828"
     foreground = "#928374"
     timeout = 5
     # Icon for notifications with low urgency, uncomment to enable
     #icon = /path/to/icon
 
 [urgency_normal]
-    background = "#2f2b26"
+    background = "#458588"
     foreground = "#ebdbb2"
     timeout = 5
 
 [urgency_critical]
-    background = "#2f2b26"
+    background = "#cc2421"
     foreground = "#ebdbb2"
     frame_color = "#fabd2f"
     timeout = 0
@@ -135,7 +135,7 @@
 #    urgency = low
 #
 #[signed_off]
-#    appname = Pidgi
+#    appname = Pidgin
 #    summary = *signed off*
 #    urgency = low
 #
@@ -149,4 +149,4 @@
 #    summary = *twitter.com*
 #    urgency = normal
 #
-# vim: ft=cfgn
+# vim: ft=cfg
